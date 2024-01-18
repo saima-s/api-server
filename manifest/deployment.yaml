@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: api-server
+  name: api-server
+  namespace: ns-two
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-server
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: api-server
+    spec:
+      containers:
+      - image: sultanasaima/api-server:2.1.0
+        name: api-server
+        resources: {}
+      serviceAccountName: api-server-sa
+status: {}
